@@ -1,4 +1,8 @@
 # Izlecidepresiju
+##Description
+The purpouse of this project is to provide help to anyone who is fighting depression. 
+
+This is the school project for ICT College in Belgrade
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 
