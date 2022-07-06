@@ -1,0 +1,97 @@
+<section class="container mx-auto min-vh90  py-3">
+	<article class="mb-3">
+		<h1 class="raleway-bold">Pregled dostupnih termina za zakazivanje.</h1>
+	</article>
+
+	<article class="mb-3">
+		<article>
+			<h2 class="raleway-bold">Izaberite terapeuta.</h2>
+		</article>
+		<form method="POST" name="therapistScheduleForm" action="#">
+			<section class="row">
+				<article class="col-12">
+					<select id="therapist-list" class="form-control" (change)="onChange()" [formControl]="therapistFormControl">
+					 <ng-container *ngFor="let t of therapists">
+						<option value="{{t.id}}">{{t.firstname}}  {{t.lastname}}</option>
+					 </ng-container>
+					</select>
+				</article>
+			</section>
+		</form>
+	</article>
+
+	<ng-container *ngIf="selectedTherapist != null">
+
+	<section class="row">
+		<figure class="col-12 col-md-2">
+			<img src="assets/images/{{selectedTherapist?.image}}" alt="profile picture" class="img-fluid rounded" />
+		</figure>
+		<section class="col-12 col-md-5">
+			<article>
+				<h3 class="raleway-bold">{{selectedTherapist?.firstname}} {{selectedTherapist?.lastname}}</h3>
+			</article>
+			<article>
+				<p class="paragraph">Kontakt telefon:<span class="raleway-bold">{{selectedTherapist?.phone}}</span> </p>
+			</article>
+		</section>
+	</section>
+	<ng-container *ngIf="dataLoaded">
+	<section>
+		<table class="table">
+			<thead>
+				<th></th>
+				<ng-container *ngFor="let day of weekdays">
+					<ng-container *ngIf="day.name != 'SkipMe'">
+						<th>{{day.name}}</th>
+					</ng-container>
+				</ng-container>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let time of times">
+					<tr>
+						<ng-container *ngFor="let day of weekdays">
+
+							<ng-container *ngIf="day.name == 'SkipMe'; else checkStatus">
+							<td class="table-cell vertical-align-top">
+								{{time.value}}
+							</td>
+							</ng-container>
+
+							<ng-template #checkStatus>
+								<ng-container *ngIf="appointmentFound(day.name, time.value) && appointmentIsFound; else notFree">
+									<td class="table-cell">
+										<span class="fas fa-check-double vertical-align-middle"></span>
+									</td>
+								</ng-container>
+								<ng-template #notFree>
+									<ng-container *ngIf="appointmentFound(day.name, time.value) && !appointmentIsFound; else notWorking">
+										<td class="table-cell">
+											<span class="fas fa-times vertical-align-middle"></span>
+										</td>
+									</ng-container>
+								</ng-template>
+								<ng-template #notWorking>
+									<td class="table-cell ">
+									</td>
+								</ng-template>
+							</ng-template>
+
+						</ng-container>
+					</tr>
+				</ng-container>
+			</tbody>
+		</table>
+	</section>
+
+	</ng-container>
+	<article>
+		<h2 class="raleway-bold">Legenda</h2>
+	</article>
+	<article>
+		<p><span class="fas fa-times"></span> - termin je zauzet.</p>
+	</article>
+	<article>
+		<p><span class="fas fa-check-double"></span> - termin je slobodan.</p>
+	</article>
+	</ng-container>
+</section>

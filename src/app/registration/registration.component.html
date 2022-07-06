@@ -1,0 +1,86 @@
+<section class="container mx-auto min-vh90 d-flex justify-content-center flex-column">
+	<article>
+		<h1 class="raleway-bold">Registracija</h1>
+	</article>
+	<section >
+		<form method="POST" action="#" [formGroup]="form" (ngSubmit)="onSubmit()">
+			<section class="row">
+				<article class="col-12 mb-3">
+					<input type="text"  placeholder="Ime" class="form-control" formControlName="firstname"/>
+					<ng-container *ngIf="form.controls['firstname'].invalid && (form.controls['firstname'].touched || form.controls['firstname'].dirty)">
+						<article  class="alert alert-danger mt-2">
+							<app-validation-message [control]="form.controls['firstname']" message="Morate uneti ime." validator="required"></app-validation-message>
+							<app-validation-message [control]="form.controls['firstname']" message="Minimalna dužina jeste 2 znaka." validator="minlength"></app-validation-message>
+							<app-validation-message [control]="form.controls['firstname']" message="Maksimalna dužina jeste 30 znakova." validator="maxlength"></app-validation-message>
+							<app-validation-message [control]="form.controls['firstname']" message="Može prihvatit samo slova i razmake." validator="pattern"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<input type="text"  placeholder="Prezime" class="form-control" formControlName="lastname"/>
+					<ng-container *ngIf="form.controls['lastname'].invalid && (form.controls['lastname'].touched || form.controls['lastname'].dirty)">
+						<article  class="alert alert-danger mt-2">
+							<app-validation-message [control]="form.controls['lastname']" message="Morate uneti prezime." validator="required"></app-validation-message>
+							<app-validation-message [control]="form.controls['lastname']" message="Minimalna dužina jeste 2 znaka." validator="minlength"></app-validation-message>
+							<app-validation-message [control]="form.controls['lastname']" message="Maksimalna dužina jeste 30 znakova." validator="maxlength"></app-validation-message>
+							<app-validation-message [control]="form.controls['lastname']" message="Može prihvatit samo slova i razmake." validator="pattern"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<input type="email"  placeholder="Email" class="form-control"formControlName="email"/>
+					<ng-container *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)">
+						<article  class="alert alert-danger mt-2">
+							<app-validation-message [control]="form.controls['email']" message="Morate uneti email." validator="required"></app-validation-message>
+							<app-validation-message [control]="form.controls['email']" message="Mora sadrzati @, ne sme se zavrsiti sa brojem ili bilo kojim znakom interpunkcije" validator="email"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<input type="text"  placeholder="Korisničko ime" class="form-control" formControlName="username">
+					<ng-container *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)">
+						<article  class="alert alert-danger mt-2">
+							<app-validation-message [control]="form.controls['username']" [message]="'Morate uneti korisničko ime.'" [validator]="'required'"></app-validation-message>
+							<app-validation-message [control]="form.controls['username']" [message]="'Minimalna dužina je 3 znaka.'" [validator]="'minlength'"></app-validation-message>
+							<app-validation-message [control]="form.controls['username']" [message]="'Korisničko ime može prihvatiti slova, brojeve, _ i . kao specijalne znakove.'" [validator]="'pattern'"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<article class="d-flex ">
+						<input [type]="password.type"  placeholder="Lozinka" class="form-control" formControlName="password"/>
+						<button type="button" class="btn btn-orange pl-2" (click)="togglePassword()"><span class="{{password.icon}} white-forecolor"></span></button>
+					</article>
+					 <ng-container *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)">
+						<article  class="alert alert-danger mt-2">
+							<app-validation-message [control]="form.controls['password']" [message]="'Morate uneti lozinku.'" [validator]="'required'"></app-validation-message>
+							<app-validation-message [control]="form.controls['password']" [message]="'Minimalna dužina je 8 znakova.'" [validator]="'minLength'"></app-validation-message>
+							<app-validation-message [control]="form.controls['password']" [message]="'Minimalna dužina je 16 znakova.'" [validator]="'maxlength'"></app-validation-message>
+							<app-validation-message [control]="form.controls['password']" [message]="'Minimalno 8, a najviše 16 znakova sa najmanje jednim slovom i jednim brojem.'" [validator]="'pattern'"></app-validation-message>
+						</article>
+					 </ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<article class="d-flex ">
+						<input [type]="passwordAgain.type"  placeholder="Lozinka ponovo" class="form-control"formControlName="passwordAgain"/>
+						<button type="button" class="btn btn-orange pl-2" (click)="togglePasswordAgain()"><span class="{{passwordAgain.icon}} white-forecolor"></span></button>
+					</article>
+						<ng-container *ngIf="form.controls['passwordAgain'].invalid && (form.controls['passwordAgain'].dirty || form.controls['passwordAgain'].touched)">
+							<article  class="alert alert-danger mt-2">
+								<app-validation-message [control]="form.controls['passwordAgain']" [message]="'Morate uneti lozinku.'" [validator]="'required'"></app-validation-message>
+								<app-validation-message [control]="form.controls['passwordAgain']" [message]="'Minimalna dužina je 8 znakova.'" [validator]="'minLength'"></app-validation-message>
+								<app-validation-message [control]="form.controls['passwordAgain']" [message]="'Minimalna dužina je 16 znakova.'" [validator]="'maxlength'"></app-validation-message>
+								<app-validation-message [control]="form.controls['passwordAgain']" [message]="'Minimalno 8, a najviše 16 znakova sa najmanje jednim slovom i jednim brojem.'" [validator]="'pattern'"></app-validation-message>
+							</article>
+							<article [class]="'alert alert-danger ' + passwordAlertClassValue">
+								<p class="paragraph">Obe lozinke moraju biti iste.</p>
+							</article>
+						</ng-container>
+				</article>
+				<article class="col-12 mb-3">
+					<input type="submit" value="Potvrdite" class="btn btn-orange"/>
+				</article>
+			</section>
+		</form>
+	</section>
+</section>

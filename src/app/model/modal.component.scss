@@ -1,0 +1,12 @@
+#model{
+	background-color: rgba(#000, .5);
+	height: 100vh;
+	position: fixed;
+	z-index: 10;
+	&__wrapper{
+		border-radius : 10px;
+		&__close{
+			font-size : 20pt;
+		}
+	}
+}

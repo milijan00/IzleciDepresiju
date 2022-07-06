@@ -1,0 +1,13 @@
+<section class="container-fluid vh100 {{display}} align-items-center" id="model">
+	<section class="container mx-auto py-2 white-backcolor" (click)="hideModel()" id="model__wrapper">
+		<article class="w-100 d-flex justify-content-end">
+			<button type="button" id="model__wrapper__close"class="btn btn-light" >&times;</button>
+		</article>
+		<article>
+			<p class="paragraph">{{modalContent}}</p>
+		</article>
+		<article>
+			<button type="button" class="btn btn-orange"id="model__wrapper__btn-close" (click)="hideModel()" >Zatvori</button>
+		</article>
+	</section>
+</section>

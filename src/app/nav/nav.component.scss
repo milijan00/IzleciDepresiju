@@ -1,0 +1,60 @@
+	@use "../../fonts.scss" as f;
+	@use "../../colors.scss" as c;
+
+	nav{
+		background-color : c.$dark-blue;
+		position : sticky;
+		top: 0;
+		z-index:20;
+		a{
+			color : c.$white;
+			// @include f.libreBondiFont();
+			@include f.ralewayFont();
+			text-decoration: none;
+			transition : color 0.5s ease-in-out;
+			cursor : pointer;
+			// transition :  0.5s ease-in;
+			&:hover{
+				@extend .active;
+			}
+		}
+	}
+	.active {
+		// color :  c.$highlited-link !important;
+		border-bottom:1px solid  c.$white;
+	}
+	#logo{
+		width: 50px;
+	}
+	.navbar-toggler{
+		outline-color : c.$white!important;
+		color: c.$white!important;
+	}
+	#bars{
+		color : c.$white !important;
+		font-size: 16pt;
+	}
+	#users-menu-wrapper{
+		position:relative;
+		#users-menu{
+			position:absolute;
+			transition: 0.5 ease-in-out;
+			overflow: hidden;
+			top:50px;
+			right: 10px;
+			background-color : c.$dark-blue;
+			ul{
+				padding: 5px 15px;
+				list-style-type: none;
+				li{
+					padding: 5px;
+				}
+			}
+		}
+	}
+	.show-users-menu{
+		height: auto;
+	}
+	.hide-users-menu{
+		height: 0px;
+	}

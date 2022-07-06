@@ -1,0 +1,39 @@
+<section class="container mx-auto py-5 min-vh90">
+	<section class="row flex-column">
+		<article>
+			<h1 class="raleway-bold">Vaši termini</h1>
+		</article>
+		<article class="col-12">
+			<!-- Ovde se nalazi tabela sa svim zakazanim seansama -->
+			<ng-container *ngIf="madeAppointments.length > 0; else noAppointments">
+				<table class="table table-striped">
+					<thead>
+						<th>Ime</th>
+						<th>Prezime</th>
+						<th>Telefon</th>
+						<th>Radni dan</th>
+						<th>Vreme</th>
+						<th>Izmeni</th>
+						<th>Otkaži</th>
+					</thead>
+					<tbody>
+						<ng-container *ngFor="let a of madeAppointments">
+							<tr>
+								<td>{{a.firstname}}</td>
+								<td>{{a.lastname}}</td>
+								<td>{{a.phone}}</td>
+								<td>{{a.workday}}</td>
+								<td>{{a.timeFromValue}} - {{a.timeToValue}}</td>
+								<td><a class="btn btn-orange" (click)="redirectToUpdatePage(a.id, a.workdayId, a.therapistId)">Izmeni</a></td>
+								<td><a class="btn btn-danger" (click)="deleteAppointment(a.id)">Otkaži</a></td>
+							</tr>
+						</ng-container>
+					</tbody>
+				</table>
+			</ng-container>
+			<ng-template #noAppointments>
+				<h3 class="raleway-bold">Trenutno nemate nijedan zakazani termin. Zakažite ga <a class="btn btn-orange" [routerLink]="'/makeappointments'">ovde</a> . </h3>
+			</ng-template>
+		</article>
+	</section>
+</section>

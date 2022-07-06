@@ -1,0 +1,17 @@
+	@use "../../colors.scss" as c;
+	.faq{
+		.question{
+			padding: 15px;
+			background-color : c.$dark-blue;
+			border-radius: 8px;
+		}
+		.answer{
+			// border-left: 2px solid grey;
+			padding: 10px;
+			background-color: #f2f2f2;
+			border-radius : 8px;
+			@media screen and (min-width: 720px) {
+				padding-left: 50px;		
+			}
+		}
+	}

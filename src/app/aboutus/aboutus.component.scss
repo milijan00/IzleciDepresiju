@@ -1,0 +1,8 @@
+	@use "../../colors.scss" as c;
+	.psychiatrics-name{
+		background-color : c.$dark-blue;	
+		padding:10px;
+		color : c.$white;
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius : 8px;
+	}

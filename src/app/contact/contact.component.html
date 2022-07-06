@@ -1,0 +1,43 @@
+<section class="container mx-auto py-4 min-vh90 d-flex align-items-center">
+	<article class="w-100" >
+		<article>
+			<h1 class="raleway-bold">Pišite nam ukoliko imate pitanja.</h1>
+		</article>
+		<form action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="form">
+			<section class="row">
+				<article class="col-12 mb-3">
+					<input type="text" placeholder="Naslov" class="form-control" formControlName="subject"/>
+				<ng-container *ngIf="form.controls['subject'].invalid && (form.controls['subject'].dirty || form.controls['subject'].touched)">
+					<div class="alert alert-danger mt-2">
+						<app-validation-message [control]="form.controls['subject']" message="Morate uneti naslov." validator="required"></app-validation-message>
+						<app-validation-message [control]="form.controls['subject']" message="Najmanji broj znakova je 2." validator="minlength"></app-validation-message>
+						<app-validation-message [control]="form.controls['subject']" message="Najveci broj znakova je 100." validator="maxlength"></app-validation-message>
+						<app-validation-message [control]="form.controls['subject']" message="Može sadržati slova." validator="pattern"></app-validation-message>
+					</div>
+				</ng-container>
+				</article>	
+				<article class="col-12 mb-3">
+					<input type="email" placeholder="Email" class="form-control" formControlName="email"/>
+					<ng-container *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)">
+						<article class="alert alert-danger">
+							<app-validation-message [control]="form.controls['email']" message="Morate uneti email." validator="required"></app-validation-message>
+							<app-validation-message [control]="form.controls['email']" message="E-mail nije u dobrom formatu." validator="email"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>	
+				<article class="col-12 mb-3">
+					<textarea rows="10" cols="20" class="form-control" placeholder="Poruka" formControlName="body"></textarea>
+					<ng-container *ngIf="form.controls['body'].invalid && (form.controls['body'].dirty || form.controls['body'].touched)">
+						<article class="alert alert-danger">
+							<app-validation-message [control]="form.controls['body']" message="Morate uneti sadržaj." validator="required"></app-validation-message>
+							<app-validation-message [control]="form.controls['body']" message="Najmanej mora sadržati 2 znaka." validator="minlength"></app-validation-message>
+						</article>
+					</ng-container>
+				</article>	
+				<article class="col-12 mb-3">
+					<input type="submit" class="btn btn-orange" value="Potvrdi" />
+				</article>	
+			</section>
+		</form>
+	</article>
+</section>

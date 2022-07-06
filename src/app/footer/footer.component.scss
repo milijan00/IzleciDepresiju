@@ -1,0 +1,12 @@
+	@use "../../colors.scss" as c;
+	.dark-blue-forecolor{
+		color : c.$dark-blue;
+	}
+	.dark-blue-backcolor{
+		background-color : c.$dark-blue;
+	}
+
+	footer{
+		background: c.$dark-blue;
+		color : c.$white;
+	}

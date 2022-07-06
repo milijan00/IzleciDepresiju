@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg  ">
+	<div class="container-fluid d-flex justify-content-between ">
+	  <a class="navbar-brand" [routerLink]="'/'" id="logo"><img src="../../assets/images/logo.png"class="img-fluid" /></a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class=" fas fa-bars " id="bars"></span>
+	  </button>
+	  <div class="collapse navbar-collapse " id="navbarNav">
+		<ul class="navbar-nav ">
+			 <li *ngFor="let l of navLinks" class="nav-item">
+				<a [class]="'nav-link ' + l.state " (click)="onClick(l.route)" [routerLink]="l.route">{{l.name}}</a>
+			 </li>
+		</ul>
+	  </div>
+	  <ng-container *ngIf="isUserLoggedIn; else userNotSignedIn">
+		<div id="users-menu-wrapper">
+			<a class="nav-link " (click)="toggleUsersMenu()"><span class="mr-1">{{username}}</span><span [class]="arrow"></span></a>
+			<div id="users-menu" [class]="toggleClass">
+				<ul>
+					<li>
+						<a [routerLink]="'appointments'">Dostupni termini</a>
+					</li>
+					<li>
+						<a [routerLink]="'madeappointments'">Zakazani termini</a>
+					</li>
+					<li>
+						<a [routerLink]="'makeappointments'">Zakažite termin</a>
+					</li>
+					<li>
+						<a (click)="logoutUser()" class="nav-link ">Odjava</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	  </ng-container>
+	  <ng-template #userNotSignedIn>
+		<div>
+			<a class="" [routerLink]="'login'">Prijava</a>
+		</div>
+	  </ng-template>
+	</div>
+  </nav>

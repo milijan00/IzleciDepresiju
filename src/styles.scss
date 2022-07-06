@@ -1,0 +1,81 @@
+	@use "colors.scss" as c;
+	@use "fonts.scss" as f;
+	@each $key, $value in ("dark-blue" : c.$dark-blue, "white" : c.$white, "orange" : c.$orange, "orange-light" : c.$orange-light){
+		.#{$key}-forecolor{
+			color : $value;
+		}
+		.#{$key}-backcolor{
+			background-color: $value;
+		}
+	}
+	a{
+		text-decoration: none;
+		color : #000;
+		transition: color .5s ease-in;
+	}
+	.underline{
+		text-decoration:underline;
+	}
+	.libre-bondi{
+		@include f.libreBondiFont();
+	}
+	.raleway{
+		@include f.ralewayFont();
+	}
+	.bold-font{
+		font-weight: 600;
+	}
+	.raleway-bold{
+		@extend .raleway-bold;
+		font-family: 'Raleway', sans-serif;
+	}
+	@mixin titleTemplate($weight , $size){
+		// @include f.libreBondiFont($weight, $size);
+		@include f.ralewayFont($weight, $size);
+		@extend .dark-blue-forecolor;
+		@extend .underline;
+	}
+	.title{
+		@include titleTemplate(600, 18pt);
+	}
+	.subtitle{
+		@include titleTemplate(600, 16pt);
+	}
+	.paragraph{
+		// @include f.libreBondiFont(400, 14pt);
+		@include f.ralewayFont(400, 14pt);
+		line-height: 1.5;
+		margin-bottom : 1em;
+	}
+	.btn.btn-orange{
+		@extend .orange-backcolor;	
+		@extend .white-forecolor;
+		// @include f.libreBondiFont(400, 12pt);
+		@include f.ralewayFont(400, 12pt);
+		outline-color: c.$white;
+		&:hover{
+			@extend .orange-light-backcolor;
+		}
+	}
+	@mixin height($value){
+		height : $value;
+	}
+	@mixin min-height($value){
+		min-height: $value;
+	}
+	.vh100{
+		@include height(100vh)	;
+	}
+	.vh50{
+		@include height(50vh);
+	}
+	.vh90{
+		@include height(90vh);
+	}
+	.min-vh90 {
+		@include min-height(90vh);
+	}
+	.form-control {
+		// @include f.libreBondiFont();
+		@include f.ralewayFont();
+	}

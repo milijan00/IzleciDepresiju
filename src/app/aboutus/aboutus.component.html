@@ -1,0 +1,38 @@
+<section class="container mx-auto py-4 ">
+	<article>
+		<h1 class="raleway-bold">O nama</h1>
+	</article>
+
+	<article>
+		<p class="paragraph">
+			Naša zajednica ima za cilj da pomogne svakome da se izbori sa danas neretkom bolešću zvanom depresija. Kroz razgovore sa našim vrhunskim stručnjacima, klineti će moći da proniknu u srž problema i da uvide uzrok njegovog nastanka kao i da prevaziđu svoje probleme i da nastave dalje sa svojim životima umesto da se prepuste "primamljivom" viru nihilizma i beznađa.
+		</p>
+	</article>
+
+	<article>
+		<h1 class="raleway-bold">Lokacija</h1>
+	</article>
+
+	<article>
+		<p class="paragraph">
+			Zdravka Čelara 16, Beograd
+		</p>
+	</article>
+
+	<article>
+		<h2 class="raleway-bold">Naši stručnjaci</h2>
+	</article>
+
+	<section class="row justify-content-center mb-3">
+		<ng-container *ngFor="let p of therapists">
+			<article  class="col-12 col-md-4 mb-3">
+				<figure class="w-100">
+					<img src="../../assets/images/{{p.image}}"class="img-fluid" alt="profile picture"/>
+				</figure>
+				<article>
+					<p class="paragraph text-center psychiatrics-name mb-0">{{p.firstname}} {{p.lastname}}</p>
+				</article>
+			</article>
+		</ng-container>
+	</section>
+</section>

@@ -1,0 +1,16 @@
+<section class="container mx-auto py-4 min-vh90">
+	 <article>
+		 <h1 class="raleway-bold">Najčešće postavljana pitanja</h1>
+	 </article>
+	 
+	 <section class="row">
+		<section *ngFor="let faq of faqs" class="col-12 faq mb-3">
+			<article class="question">
+				<h2 class="subtitle white-forecolor">{{faq.question}}</h2>
+			</article>
+			<article class="answer">
+				<p class="paragraph mb-0">{{faq.answer}}</p>
+			</article>
+		</section>
+	 </section>
+</section>

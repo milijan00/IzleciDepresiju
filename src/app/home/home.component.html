@@ -1,0 +1,36 @@
+<section class="container-fluid py-4  d-flex align-items-center justify-content-center" id="homePicWrapper">
+	<section class="container mx-auto flex-column ">
+		 <article>
+			 <h1 class=" text-center">Možeš da pobediš! Nisi sam/a!</h1>
+		 </article>
+		 <article>
+			<p class="text-center ">Kontakt telefon za brzo biranje: +381 11337609</p>
+		 </article>
+		 <article class="text-center">
+			 <a href="#symptoms" class="btn btn-orange">Da li ja imam depresiju?</a>
+		 </article>
+	</section>
+</section>
+
+<section class="container mx-auto py-5">
+	<article>
+		<h2 class="raleway-bold" id="symptoms">Simptomi depresije</h2>
+	</article>
+	<section>
+		 <article>
+			<p class="paragraph">Depresija zahvata sve aspekte života, sa narušenim socijalnim aktivnostima, disfunkcionalnošću u radnom, porodičnom okruženju. Simptomi depresije obuhvataju emocionalne, kognitivne, motivacione i somatske simptome.</p>
+		 </article>
+		<article>
+			<ul>
+				<ng-container *ngFor="let d of depressionSymptoms">
+					<li >
+						<p class="paragraph">{{d.name}} : {{d.description}}</p>
+					</li>
+				</ng-container>
+			</ul>
+		</article>
+	</section>
+	<article>
+		<p class="paragraph">Zakažite seansu klikom na ovaj <a [routerLink]="'appointments'" class="btn btn-orange">link</a></p>
+	</article>
+</section>

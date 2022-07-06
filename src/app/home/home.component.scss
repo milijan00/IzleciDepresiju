@@ -1,0 +1,21 @@
+	@use "../../colors.scss" as c;
+	@use "../../fonts.scss" as f;
+
+	#homePicWrapper{
+		background: rgba(#000, .8) url("../../assets/images/homePic2.jpg");
+		background-blend-mode: multiply;
+		background-position: center;
+		background-size : cover;
+		background-repeat: no-repeat;
+		height: 100vh;	
+		h1{
+			color : c.$white;
+			// @include f.libreBondiFont(600, 6vw);
+			@include f.ralewayFont(600, 6vw);
+		}
+		p{
+			color : c.$white;
+			// @include f.libreBondiFont($size : 2vw);
+			@include f.ralewayFont($size: 2vw);
+		}
+	}

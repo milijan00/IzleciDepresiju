@@ -1,0 +1,53 @@
+<section class="container mx-auto py-4 min-vh90">
+	<section class="row flex-column">
+		<article>
+			<h1 class="raleway-bold">Zakažite termin</h1>
+		</article>
+		<section class="w-100">
+			<form method="POST" action="#" [formGroup]="form" (submit)="onSubmit()">
+				<article class="col-12 mb-3">
+					<article>
+						<p class="paragraph">Izaberite terapeuta.</p>
+					</article>
+					<article>
+						<select class="form-control" formControlName="therapist" (change)="updateOtherTwoDropDowns()">
+							<ng-container *ngFor="let t of therapists">
+								<option [value]="t.id">{{t.firstname}} {{t.lastname}}</option>
+							</ng-container>
+						</select>
+					</article>
+					<article>
+						<p class="paragraph">Izaberite radni dan.</p>
+					</article>
+					<article>
+						<select class="form-control" formControlName="workday" (change)="loadTimes()">
+							<ng-container *ngFor="let w of workdays">
+								<option [value]="w.id">{{w.name}}</option>
+							</ng-container>
+						</select>
+					</article>
+				</article>	
+				<article class="col-12 mb-3">
+					<article>
+						<p class="paragraph">Izaberite termin.</p>
+					</article>
+					<ng-container *ngIf="times.length > 0; else noAvailableAppointment">
+						<article>
+							<select class="form-control" formControlName="time">
+								<ng-container *ngFor="let t of times">
+									<option [value]="t.availableAppointmentId">{{t.timeFromValue}} - {{t.timeToValue}}</option>
+								</ng-container>
+							</select>
+						</article>
+					</ng-container>
+					<ng-template #noAvailableAppointment>
+						<p class="paragraph">Ne postoji slobodan termin.</p>
+					</ng-template>
+				</article>
+				<article class="col-12 mb-3">
+					<input type="submit" value="Potvrdi" class="btn btn-orange"/>
+				</article>
+			</form>
+		</section>
+	</section>
+</section>

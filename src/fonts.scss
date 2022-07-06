@@ -1,0 +1,12 @@
+	@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+	@mixin libreBondiFont($weight : 400, $size : 14pt){
+		font-family: 'Libre Bodoni', serif;
+		font-weight: $weight;
+		font-size : $size;
+	}
+	@mixin ralewayFont($weight: 400, $size : 14pt){
+		font-family: 'Raleway', sans-serif;
+		font-weight: $weight;
+		font-size : $size;
+	}
