@@ -1,5 +1,5 @@
 # Izlecidepresiju
-##Description
+
 The purpouse of this project is to provide help to anyone who is fighting depression. 
 
 This is the school project for ICT College in Belgrade
